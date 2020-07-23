@@ -1,0 +1,86 @@
+{
+  "id": "1728524",
+  "name": "shop",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "4492981",
+      "name": "商品管理",
+      "font_class": "shangpinguanli",
+      "unicode": "e653",
+      "unicode_decimal": 58963
+    },
+    {
+      "icon_id": "8224217",
+      "name": "数据统计",
+      "font_class": "shuju",
+      "unicode": "e655",
+      "unicode_decimal": 58965
+    },
+    {
+      "icon_id": "11376538",
+      "name": "用户管理",
+      "font_class": "leaflet-yonghuguanli",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "13071703",
+      "name": "订单管理",
+      "font_class": "logooo_huabanfuben",
+      "unicode": "e662",
+      "unicode_decimal": 58978
+    },
+    {
+      "icon_id": "2430758",
+      "name": "播放",
+      "font_class": "bofang",
+      "unicode": "e665",
+      "unicode_decimal": 58981
+    },
+    {
+      "icon_id": "2454603",
+      "name": "时间",
+      "font_class": "shijian",
+      "unicode": "e9b5",
+      "unicode_decimal": 59829
+    },
+    {
+      "icon_id": "3065594",
+      "name": "星星-线",
+      "font_class": "xing",
+      "unicode": "e657",
+      "unicode_decimal": 58967
+    },
+    {
+      "icon_id": "6473847",
+      "name": "上箭头",
+      "font_class": "jiantou-bottom",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "9343209",
+      "name": "see user",
+      "font_class": "user",
+      "unicode": "e612",
+      "unicode_decimal": 58898
+    },
+    {
+      "icon_id": "9861217",
+      "name": "下箭头",
+      "font_class": "downs",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "13713313",
+      "name": "密码",
+      "font_class": "mima",
+      "unicode": "e686",
+      "unicode_decimal": 59014
+    }
+  ]
+}
