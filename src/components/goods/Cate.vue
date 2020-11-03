@@ -72,8 +72,9 @@
     <el-dialog
       title="添加分类"
       :visible.sync="addCateDialogVisible"
-      width="50%">
-      <el-form ref="addCateFormRef" :rules="addCateFormRules" :model="addCateForm" label-width="100px">
+      width="50%"
+      @close="addCateDialogClose">
+      <el-form ref="addCateFormRef" :rules="addCateFormRules" :model="addCateForm" label-width="100px" >
         <el-form-item label="分类名称：" prop="cat_name">
           <el-input v-model="addCateForm.cat_name"></el-input>
         </el-form-item>
@@ -92,7 +93,7 @@
       </el-form>
       <span slot="footer" class="dialog-footer">
         <el-button @click="addCateDialogVisible = false">取 消</el-button>
-        <el-button type="primary" @click="addCateDialogVisible = false">确 定</el-button>
+        <el-button type="primary" @click="addCate">确 定</el-button>
       </span>
     </el-dialog>
   </div>
@@ -218,6 +219,44 @@ export default {
     // 选择项发生变化触发这个函数
     parentCateChange () {
       console.log(this.selectKeys)
+      // 如果selectKeys 数组中的length 大于0，证明选中的父级分类
+      // 反之，就说明没有选中任何父级分类
+      if (this.selectKeys.length > 0) {
+        // 父级分类的ID
+        this.addCateForm.cat_pid = this.selectKeys[this.selectKeys.length - 1]
+        // 为当前分类的等级赋值
+        this.addCateForm.cat_level = this.selectKeys.length
+        // return
+      } else {
+        // 父级分类id置为 0
+        this.addCateForm.cat_pid = 0
+        // 当前分类的等级赋值 0
+        this.addCateForm.cat_level = 0
+      }
+    },
+    // 点击按钮，添加新的分类
+    addCate () {
+      // console.log(this.addCateForm)
+      this.$refs.addCateFormRef.validate(async valid => {
+        if (!valid) return
+        const {data: res} = await this.$http.post('categories', this.addCateForm)
+        if (res.meta.status !== 201) {
+          return this.$message.error('添加分类失败！')
+        }
+        // 添加成功提示
+        this.$message.success('添加分类成功！')
+        // 重新获取列表数据
+        this.getCateList()
+        // 隐藏对话框
+        this.addCateDialogVisible = false
+      })
+    },
+    // 监听对话框的关闭事件，重置表单数据
+    addCateDialogClose () {
+      this.$refs.addCateFormRef.resetFields()
+      this.selectKeys = []
+      this.addCateForm.cat_level = 0
+      this.addCateForm.cat_pid = 0
     }
   }
 }
